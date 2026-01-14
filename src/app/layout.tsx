@@ -10,11 +10,6 @@ const descriptionSite = "Based in Kazan, hands-on by nature, with a systems mind
 export const metadata: Metadata = {
 	title: titleSite,
 	description: descriptionSite,
-	authors: {
-		name: "DCiel | Vingrig",
-		url: "https://github.com/faes763",
-	},
-	creator: "dciel",
 	openGraph: {
 		title: titleSite,
 		description: descriptionSite,
