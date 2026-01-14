@@ -21,7 +21,17 @@ const experienceData = [
         years: "2019 – 2021",
     },
 ]
-<canvas width="800" height="800" class="absolute inset-0 pointer-events-auto cursor-pointer w-full h-full" style="image-rendering: pixelated; mix-blend-mode: normal;"></canvas>
+import StarDustCanvas from "@/components/StarDustCanvas";
+
+export default function Page() {
+  return (
+    <div className="relative w-full h-[400px] bg-black overflow-hidden">
+      <StarDustCanvas />
+      {/* твой контент сверху */}
+      <div className="relative z-10 text-white p-6">Hello</div>
+    </div>
+  );
+}
 
 export const Experience = () => {
     return (
