@@ -1,3 +1,4 @@
+"use client";
 const experienceData = [
     {
         name: "минцифры",
@@ -21,11 +22,8 @@ const experienceData = [
         years: "2019 – 2021",
     },
 ]
-"use client";
 
-import { useEffect, useRef } from "react";
-
-export default function StarDustCanvas() {
+function StarDustCanvas() {
   const ref = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -58,14 +56,6 @@ export default function StarDustCanvas() {
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, w, h);
 
-      // лёгкая дымка в центре
-      const g = ctx.createRadialGradient(w * 0.5, h * 0.5, 0, w * 0.5, h * 0.5, Math.min(w, h) * 0.6);
-      g.addColorStop(0, "rgba(200,210,220,0.06)");
-      g.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, w, h);
-
-      // звёзды с мерцанием
       for (const s of stars) {
         const tw = 0.6 + 0.4 * Math.sin(t * 0.003 * s.s + s.p);
         const a = Math.max(0, Math.min(1, s.a * tw));
@@ -77,14 +67,12 @@ export default function StarDustCanvas() {
     };
 
     resize();
-    const onResize = () => resize();
-    window.addEventListener("resize", onResize);
-
+    window.addEventListener("resize", resize);
     raf = requestAnimationFrame(frame);
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
