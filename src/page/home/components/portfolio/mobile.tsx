@@ -390,6 +390,12 @@ const DataThree = () => {
                                 width={256}
                                 height={400}
                                 className=" w-16 h-32"
+                            /<Image
+                                src={"/images/mobile/28.png"} 
+                                alt=""
+                                width={256}
+                                height={400}
+                                className=" w-16 h-32"
                             />
 
                         </div>
